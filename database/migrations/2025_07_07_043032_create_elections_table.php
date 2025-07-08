@@ -16,7 +16,7 @@ return new class extends Migration {
             $table->string('name'); // "2025 Municipal Elections"
             $table->date('start_date'); 
             $table->date('end_date');
-            $table->enum('type', array_column(ElectionType::cases(),'value')); // Election type
+            $table->enum('election_type', array_column(ElectionType::cases(),'value')); // Election type
             $table->timestamps();
         });
     }

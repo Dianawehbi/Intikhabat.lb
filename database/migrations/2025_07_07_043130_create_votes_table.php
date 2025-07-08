@@ -13,9 +13,8 @@ return new class extends Migration {
         Schema::create('votes', function (Blueprint $table) {
             $table->id();
             $table->foreignId('candidate_id')->constrained()->onDelete('cascade'); // The candidate being voted for
-            $table->foreignId('electoral_district_id')->constrained()->onDelete('cascade'); // The district where vote was cast
             $table->foreignId('election_id')->constrained()->onDelete('cascade'); // The election this vote belongs to
-            $table->foreignId('voter_id')->nullable()->constrained('users')->onDelete('set null'); // Voter ID, if you track users
+            $table->foreignId('voter_id')->constrained('users'); // Voter ID, if you track users
             $table->timestamps();
         });
     }

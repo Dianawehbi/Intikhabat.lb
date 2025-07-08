@@ -64,4 +64,17 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    //refer to idscans
+    public function id_scan()
+    {
+        return $this->hasOne(IdScan::class);
+    }
+
+    //refer to votes
+    
+    public function votes()
+    {
+        return $this->hasMany(Vote::class);
+    }
 }

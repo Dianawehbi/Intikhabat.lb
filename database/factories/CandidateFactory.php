@@ -24,7 +24,7 @@ class CandidateFactory extends Factory
             'full_name' => $this->faker->name,
             'sect' => $this->faker->randomElement(Sect::cases())->value,
             'position' => $this->faker->randomElement(Position::cases())->value,
-            'list_models_id' => ListModel::inRandomOrder()->value('id'),
+            'list_model_id' => ListModel::inRandomOrder()->value('id'),
             'electoral_district_id' => ElectoralDistrict::inRandomOrder()->value('id'),
             'won' => $this->faker->boolean(30), // 30% chance of being a winner
             'votes_count' => $this->faker->numberBetween(100, 10000),

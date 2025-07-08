@@ -24,7 +24,7 @@ class ElectionFactory extends Factory
             'name' => 'Election ' . $this->faker->year,
             'start_date' => $startDate->format('Y-m-d'),
             'end_date' => $endDate->format('Y-m-d'),
-            'type' => $this->faker->randomElement(ElectionType::cases())->value,
+            'election_type' => $this->faker->randomElement(ElectionType::cases())->value,
         ];
     }
 }

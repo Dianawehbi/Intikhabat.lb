@@ -22,9 +22,8 @@ class VoteFactory extends Factory
 
         return [
             'candidate_id' => $candidate?->id ?? Candidate::factory(),
-            'electoral_district_id' => $candidate?->electoral_district_id ?? 1,
             'election_id' => $candidate?->listModel?->election_id ?? 1,
-            'voter_id' => $this->faker->optional()->randomElement(User::pluck('id')->toArray()),
+            'voter_id' => $this->faker->randomElement(User::pluck('id')->toArray()),
         ];
     }
 }

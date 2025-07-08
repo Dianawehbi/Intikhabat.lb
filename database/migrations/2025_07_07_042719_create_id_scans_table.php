@@ -18,7 +18,7 @@ return new class extends Migration {
             $table->timestamp('uploaded_at');
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->timestamps(); // <-- Add this line
-
+            
         });
     }
 
