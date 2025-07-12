@@ -17,14 +17,24 @@ class Candidate extends Model
         return $this->belongsTo(ListModel::class);
     }
 
-    public function electoral_district()
-    {
-        return $this->belongsTo(ElectoralDistrict::class);
-    }
-
     //refer to vote
     public function votes()
     {
         return $this->hasMany(Vote::class);
+    }
+
+    public function election()
+    {
+        return $this->belongsTo(\App\Models\Election::class);
+    }
+
+    public function party()
+    {
+        return $this->belongsTo(\App\Models\Party::class);
+    }
+
+    public function electoralDistrict()
+    {
+        return $this->belongsTo(\App\Models\ElectoralDistrict::class);
     }
 }

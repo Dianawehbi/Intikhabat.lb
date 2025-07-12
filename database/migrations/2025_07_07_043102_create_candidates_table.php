@@ -18,7 +18,7 @@ return new class extends Migration {
             $table->enum('sect', array_column(Sect::cases(), 'value'));
             $table->enum('position', array_column(Position::cases(), 'value'))->default('عضو مجلس بلدي');
             $table->foreignId('list_model_id')->constrained()->onDelete('cascade');
-            $table->foreignId('electoral_district_id')->constrained()->onDelete('cascade');
+            $table->foreignId('electoral_district_id')->constrained()->onDelete('cascade'); // should removed 
             $table->boolean('won')->default(false);
             $table->integer('votes_count')->nullable();
             $table->timestamps();
