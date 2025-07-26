@@ -54,16 +54,11 @@
                             </select>
                         </div>
 
-                        <!-- Election Type -->
+                        <!-- Election -->
                         <div>
                             <label class="block text-sm font-medium text-gray-700 mb-1">Election Type</label>
                             <select name="election_type" onchange="this.form.submit()" 
                                 class="w-full rounded-lg border-gray-300 shadow-sm focus:border-white focus:ring focus:ring-green-200 focus:ring-opacity-50 transition">
-                                <option value="">All Types</option>
-                                @foreach ($electionTypes as $type)
-                                    <option value="{{ $type }}" {{ ($filters['election_type'] ?? '') === $type ? 'selected' : '' }}>
-                                        {{ $type }}</option>
-                                @endforeach
                             </select>
                         </div>
 

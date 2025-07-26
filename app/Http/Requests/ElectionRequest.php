@@ -2,7 +2,6 @@
 
 namespace App\Http\Requests;
 
-use App\Enums\ElectionType;
 use Illuminate\Foundation\Http\FormRequest;
 
 class ElectionRequest extends FormRequest
@@ -26,7 +25,6 @@ class ElectionRequest extends FormRequest
             'name' => 'required|string|max:255',
             'start_date' => 'required|date',
             'end_date' => 'required|date|after_or_equal:start_date',
-            'election_type' => 'required|in:' . implode(',', array_column(ElectionType::cases(), 'value')),
         ];
     }
 }

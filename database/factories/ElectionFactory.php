@@ -2,7 +2,6 @@
 
 namespace Database\Factories;
 
-use App\Enums\ElectionType;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -24,7 +23,6 @@ class ElectionFactory extends Factory
             'name' => 'Election ' . $this->faker->year,
             'start_date' => $startDate->format('Y-m-d'),
             'end_date' => $endDate->format('Y-m-d'),
-            'election_type' => $this->faker->randomElement(ElectionType::cases())->value,
         ];
     }
 }

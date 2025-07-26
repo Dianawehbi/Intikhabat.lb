@@ -18,12 +18,11 @@ class CandidateController extends Controller
 
     public function index(Request $request)
     {
-        $filters = $request->only(['region', 'year', 'election_type', 'party_id']);
+        $filters = $request->only(['region', 'year', 'party_id']);
 
         // Get dropdown values
         $regions = ElectoralDistrict::select('region')->distinct()->orderBy('region')->pluck('region');
         $years = Election::selectRaw('YEAR(start_date) as year')->distinct()->pluck('year');
-        $electionTypes = Election::select('election_type')->distinct()->pluck('election_type');
         $parties = Party::orderBy('name')->get(); // Adjust if you want to limit by year/type
 
         // Build district list with filtered candidates
@@ -53,7 +52,7 @@ class CandidateController extends Controller
             ->when($filters['region'] ?? null, fn($q) => $q->where('region', $filters['region']))
             ->orderBy('name')
             ->get();
-        return view('candidates.index', compact('districts', 'filters', 'regions', 'years', 'electionTypes', 'parties'));
+        return view('candidates.index', compact('districts', 'filters', 'regions', 'years', 'parties'));
     }
 
     /**
